@@ -23,7 +23,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   void initialization() async {
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 1));
     FlutterNativeSplash.remove();
   }
 
