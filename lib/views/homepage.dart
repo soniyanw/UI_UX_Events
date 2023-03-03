@@ -68,10 +68,18 @@ class _HomePageState extends State<HomePage> {
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-                icon: Icon(Icons.list_alt_outlined, size: 30),
+                icon: Icon(
+                  Icons.list_alt_outlined,
+                  size: 30,
+                  key: const Key("list"),
+                ),
                 label: 'Event list'),
             BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_month_rounded, size: 30),
+                icon: Icon(
+                  Icons.calendar_month_rounded,
+                  size: 30,
+                  key: const Key('schedule'),
+                ),
                 label: 'Schedule'),
           ],
           selectedItemColor: Colors.white,

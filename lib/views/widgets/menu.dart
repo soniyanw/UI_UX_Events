@@ -32,13 +32,18 @@ class Menu extends StatelessWidget {
       }
     }
 
-    return PopupMenuButton<int>(
-        onSelected: (item) => handleClick(item),
-        itemBuilder: (context) => [
-              PopupMenuItem<int>(
-                  value: 1, child: RedText2(text: 'Terms and Conditions')),
-              PopupMenuItem<int>(value: 4, child: RedText2(text: 'Contact Us')),
-              PopupMenuItem<int>(value: 5, child: RedText2(text: 'Banner')),
-            ]);
+    return Tooltip(
+      message: 'popup',
+      child: PopupMenuButton<int>(
+          key: const Key('popup'),
+          onSelected: (item) => handleClick(item),
+          itemBuilder: (context) => [
+                PopupMenuItem<int>(
+                    value: 1, child: RedText2(text: 'Terms and Conditions')),
+                PopupMenuItem<int>(
+                    value: 4, child: RedText2(text: 'Contact Us')),
+                PopupMenuItem<int>(value: 5, child: RedText2(text: 'Banner')),
+              ]),
+    );
   }
 }

@@ -30,3 +30,15 @@ makingPhoneCall() async {
     throw 'Could not launch $url';
   }
 }
+
+class Launch {
+  bool launch = true;
+
+  void makeFalse() {
+    launch = false;
+  }
+
+  void makeTrue() {
+    launch = true;
+  }
+}

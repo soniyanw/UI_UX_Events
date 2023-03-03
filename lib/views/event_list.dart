@@ -23,6 +23,7 @@ class EventList extends StatelessWidget {
         ],
         title: WhiteText(
           text: "Events",
+          key: const Key('events'),
         ),
         backgroundColor: red,
       ),
@@ -64,8 +65,35 @@ class EventList extends StatelessWidget {
                       child: Card(
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(16)),
-                        child: ListTile(
-                          title: TextButton(
+                        child: Tooltip(
+                          message: 'blindcoding',
+                          child: ListTile(
+                            title: TextButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            const BlindCoding()),
+                                  );
+                                },
+                                key: const Key('blindcoding'),
+                                child: Row(
+                                  children: [
+                                    RedText(text: "</>"),
+                                    SizedBox(
+                                      width: 12,
+                                    ),
+                                    Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: RedText2(text: 'Blind Coding')),
+                                  ],
+                                )),
+                            trailing: IconButton(
+                              icon: Icon(
+                                Icons.arrow_forward_ios,
+                                color: red,
+                              ),
                               onPressed: () {
                                 Navigator.push(
                                   context,
@@ -74,29 +102,7 @@ class EventList extends StatelessWidget {
                                           const BlindCoding()),
                                 );
                               },
-                              child: Row(
-                                children: [
-                                  RedText(text: "</>"),
-                                  SizedBox(
-                                    width: 12,
-                                  ),
-                                  Align(
-                                      alignment: Alignment.centerLeft,
-                                      child: RedText2(text: 'Blind Coding')),
-                                ],
-                              )),
-                          trailing: IconButton(
-                            icon: Icon(
-                              Icons.arrow_forward_ios,
-                              color: red,
                             ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const BlindCoding()),
-                              );
-                            },
                           ),
                         ),
                       ),
