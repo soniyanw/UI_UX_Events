@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inter_college_event/views/banner.dart';
 import 'package:inter_college_event/views/contactus.dart';
+import 'package:inter_college_event/views/events.dart';
 import 'package:inter_college_event/views/terms_and_conditions.dart';
 import 'package:inter_college_event/views/widgets/smallredtext.dart';
 
@@ -29,6 +30,12 @@ class Menu extends StatelessWidget {
             MaterialPageRoute(builder: (context) => const BannerPage()),
           );
           break;
+        case 6:
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const EventsList()),
+          );
+          break;
       }
     }
 
@@ -43,6 +50,8 @@ class Menu extends StatelessWidget {
                 PopupMenuItem<int>(
                     value: 4, child: RedText2(text: 'Contact Us')),
                 PopupMenuItem<int>(value: 5, child: RedText2(text: 'Banner')),
+                PopupMenuItem<int>(
+                    value: 6, child: RedText2(text: 'EventsList')),
               ]),
     );
   }

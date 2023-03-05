@@ -28,6 +28,16 @@ void main() {
       expect(termsAndConditionsFinder, findsOneWidget);
       await tester.pumpAndSettle();
 
+      //scroll down test in terms page - single child scroll view
+      final scrollFinder = find.byKey(const Key('scroll'));
+      await tester.fling(scrollFinder, const Offset(0, -500), 10000);
+      await tester.pumpAndSettle();
+
+      //scroll up back and check
+      await tester.fling(scrollFinder, const Offset(0, 500), 10000);
+      await tester.pumpAndSettle();
+      expect(find.text('Terms are:'), findsOneWidget);
+
       //come back to home page
       await tester.tap(find.byType(BackButton));
       await tester.pumpAndSettle();
@@ -76,6 +86,31 @@ void main() {
       await tester.pumpAndSettle();
 
       //ensure homepage is reached
+      expect(findtechnical, findsOneWidget);
+
+      //tap on menu
+      await tester.tap(popup);
+      await tester.pumpAndSettle();
+
+      //tap on event list in menu and ensure that it opens
+      final events = find.text('EventsList');
+      await tester.tap(events);
+      await tester.pumpAndSettle();
+
+      //test scroll on list
+      final listFinder = find.byType(Scrollable);
+      final itemFinder = find.byKey(const ValueKey("60_element"));
+
+      await tester.scrollUntilVisible(
+        itemFinder,
+        90.0,
+        scrollable: listFinder,
+      );
+      expect(itemFinder, findsOneWidget);
+      await tester.pumpAndSettle();
+
+      //come back to homepage
+      await tester.tap(find.byType(BackButton));
       expect(findtechnical, findsOneWidget);
     });
   });
