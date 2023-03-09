@@ -1,5 +1,5 @@
+import 'package:flutter_test/flutter_test.dart';
 import 'package:inter_college_event/services/services.dart';
-import 'package:test/test.dart';
 
 void main() {
   group('Launch', () {
